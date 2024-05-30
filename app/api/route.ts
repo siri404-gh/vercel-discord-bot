@@ -1,9 +1,8 @@
 import crypto from 'crypto';
 
-const INTEGRATION_SECRET = 'P5uBgq3Qvaq3MD69ndDlvBSd'
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1245528235400368248/KWhw4RKvHAWsoka6e3lZvexYzqNfE1fBdxEnLjU-9T7lrSFeHwy5lEbVG7NwUpZPyNgc'
 
 export async function POST(request: Request) {
+  const { INTEGRATION_SECRET, DISCORD_WEBHOOK_URL } = process.env
   const rawBody = await request.text();
   const rawBodyBuffer = Buffer.from(rawBody, 'utf-8');
   const json = JSON.parse(rawBodyBuffer.toString('utf-8'));
