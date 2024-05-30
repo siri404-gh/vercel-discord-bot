@@ -17,7 +17,8 @@ export async function POST(request: Request) {
     });
   }
   
-  const { id, payload: { name }, type } = json
+  const { id, payload: { name, user: { id: userId }, project: { id: projectId }, type } } = obj
+
   try {
     await fetch(DISCORD_WEBHOOK_URL, {
       method: 'POST',
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         username: 'Vercel',
-        content: type,
+        content: `${type} at project: ${projectId} by ${userId}`,
         avatar_url: 'https://avatars.githubusercontent.com/u/14985020?s=200&v=4'
       })
     }) 
