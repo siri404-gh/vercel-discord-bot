@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     });
   }
   
-  const { id, payload: { name, user: { id: userId }, project: { id: projectId }, type } } = obj
+  const { id, payload: { name, user: { id: userId }, project: { id: projectId }, type } } = json
 
   try {
     await fetch(DISCORD_WEBHOOK_URL, {
