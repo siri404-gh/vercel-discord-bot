@@ -6,11 +6,12 @@ export async function POST(request: Request) {
 
   await fetch('https://discord.com/api/webhooks/1245528235400368248/KWhw4RKvHAWsoka6e3lZvexYzqNfE1fBdxEnLjU-9T7lrSFeHwy5lEbVG7NwUpZPyNgc', {
     method: 'POST',
-    body: JSON.stringify({
-      name: 'Vercel',
-      content: type,
-      avatar_url: 'https://avatars.githubusercontent.com/u/14985020?s=200&v=4'
-    })
+    "body": "username=a&content=mb&avatar_url=https://avatars.githubusercontent.com/u/14985020?s=200&v=4",
+    // body: JSON.stringify({
+    //   name: 'Vercel',
+    //   content: type,
+    //   avatar_url: 'https://avatars.githubusercontent.com/u/14985020?s=200&v=4'
+    // })
   })
   return Response.json({ success: true })
 }
