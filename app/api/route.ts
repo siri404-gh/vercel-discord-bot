@@ -1,8 +1,8 @@
 import crypto from 'crypto';
 
-
 export async function POST(request: Request) {
-  const { INTEGRATION_SECRET, DISCORD_WEBHOOK_URL } = process.env
+  const { INTEGRATION_SECRET = '', DISCORD_WEBHOOK_URL = '' } = process.env
+  
   const rawBody = await request.text();
   const rawBodyBuffer = Buffer.from(rawBody, 'utf-8');
   const json = JSON.parse(rawBodyBuffer.toString('utf-8'));
