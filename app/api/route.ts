@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 
-const sha1 = crypto.createHash('sha1')
 const INTEGRATION_SECRET = 'P5uBgq3Qvaq3MD69ndDlvBSd'
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1245528235400368248/KWhw4RKvHAWsoka6e3lZvexYzqNfE1fBdxEnLjU-9T7lrSFeHwy5lEbVG7NwUpZPyNgc'
 
@@ -35,4 +34,8 @@ export async function POST(request: Request) {
     console.log('2', err) 
   }
   return Response.json({ success: true })
+}
+ 
+function sha1(data: Buffer, secret: string): string {
+  return crypto.createHmac('sha1', secret).update(data).digest('hex');
 }
